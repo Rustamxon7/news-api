@@ -25,9 +25,9 @@ cd News-api
 
 ### Prerequisites
 
-Ruby 3.0.1
-Rails 7.0.3
-PostgresSQL 14.4
+  - Ruby 3.0.1
+  - Rails 7.0.3
+  - PostgresSQL 14.4
 
 ### Setup
 
