@@ -8,19 +8,15 @@ class Source < ApplicationRecord
 
   scope :random, -> { order('RANDOM()') }
 
+  scope :website, ->(source) { where('source LIKE ?', "%#{source}%").latest }
 
-  scope :website, -> (source) { where("source LIKE ?", "%#{source}%").latest }
-
-  scope :top_five, -> {
-    where("image_url LIKE ?", "%storage.kun.uz/source/thumbnails/_medium%")
-    .or(where("image_url LIKE ?", "%www.cnet.com%"))
-    .or(where("url LIKE ?", "%www.vox.com/recode%"))
-    .or(where("url LIKE ?", "%www.technewsworld.com/section/it%"))
-    .limit(LIMIT)
+  scope :top_five, lambda {
+    where('image_url LIKE ?', '%storage.kun.uz/source/thumbnails/_medium%')
+      .or(where('image_url LIKE ?', '%www.cnet.com%'))
+      .or(where('url LIKE ?', '%www.vox.com/recode%'))
+      .or(where('url LIKE ?', '%www.technewsworld.com/section/it%'))
+      .limit(LIMIT)
   }
 
   scope :scrape_all, -> { SourceScraper.scrape_all }
 end
-
-
-

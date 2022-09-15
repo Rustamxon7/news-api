@@ -3,26 +3,25 @@ require_relative '../sources/vox'
 require_relative '../sources/cnet'
 require_relative '../sources/technewsworld'
 
-
 module SourceScraper
-  KUN_URL = 'kun.uz/en/news/category/tech'
-  VOX_URL = 'www.vox.com/recode'
-  CNET_URL = 'www.cnet.com/tech'
-  TECHNEWSWORLD_URL = 'www.technewsworld.com/section/it'
+  KUN_URL = 'kun.uz/en/news/category/tech'.freeze
+  VOX_URL = 'www.vox.com/recode'.freeze
+  CNET_URL = 'www.cnet.com/tech'.freeze
+  TECHNEWSWORLD_URL = 'www.technewsworld.com/section/it'.freeze
 
   def self.scrape(url)
     case url
     when KUN_URL
-      parseList = Kun::Parser::ParseNewsList.new(url)
+      parse_list = Kun::Parser::ParseNewsList.new(url)
     when VOX_URL
-      parseList = Vox::Parser::ParseNewsList.new(url)
+      parse_list = Vox::Parser::ParseNewsList.new(url)
     when CNET_URL
-      parseList = Cnet::Parser::ParseNewsList.new(url)
+      parse_list = Cnet::Parser::ParseNewsList.new(url)
     when TECHNEWSWORLD_URL
-      parseList = TechNewsWorld::Parser::ParseNewsList.new(url)
+      parse_list = TechNewsWorld::Parser::ParseNewsList.new(url)
     end
 
-    Source.create(parseList.parse)
+    Source.create(parse_list.parse)
   end
 
   def self.scrape_all
@@ -32,4 +31,3 @@ module SourceScraper
     scrape(TECHNEWSWORLD_URL)
   end
 end
-

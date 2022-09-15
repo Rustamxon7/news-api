@@ -14,4 +14,3 @@ module Cnet
     end
   end
 end
-

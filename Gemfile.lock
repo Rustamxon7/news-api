@@ -73,6 +73,7 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
+    ast (2.4.2)
     bootsnap (1.13.0)
       msgpack (~> 1.2)
     builder (3.2.4)
@@ -102,6 +103,7 @@ GEM
     io-console (0.5.11)
     irb (1.4.1)
       reline (>= 0.3.0)
+    json (2.6.2)
     json-schema (2.8.1)
       addressable (>= 2.4)
     jsonapi-renderer (0.2.2)
@@ -136,6 +138,9 @@ GEM
       stringio
       time
       uri
+    parallel (1.22.1)
+    parser (3.1.2.1)
+      ast (~> 2.4.1)
     pg (1.4.3)
     public_suffix (5.0.0)
     puma (5.6.5)
@@ -172,9 +177,12 @@ GEM
       rake (>= 12.2)
       thor (~> 1.0)
       zeitwerk (~> 2.5)
+    rainbow (3.1.1)
     rake (13.0.6)
+    regexp_parser (2.5.0)
     reline (0.3.1)
       io-console (~> 0.5)
+    rexml (3.2.5)
     rspec-core (3.11.0)
       rspec-support (~> 3.11.0)
     rspec-expectations (3.11.1)
@@ -205,6 +213,19 @@ GEM
     rswag-ui (2.6.0)
       actionpack (>= 3.1, < 7.1)
       railties (>= 3.1, < 7.1)
+    rubocop (1.36.0)
+      json (~> 2.3)
+      parallel (~> 1.10)
+      parser (>= 3.1.2.1)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml (>= 3.2.5, < 4.0)
+      rubocop-ast (>= 1.20.1, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 3.0)
+    rubocop-ast (1.21.0)
+      parser (>= 3.1.1.0)
+    ruby-progressbar (1.11.0)
     stringio (3.0.2)
     strscan (3.0.4)
     thor (1.2.1)
@@ -213,6 +234,7 @@ GEM
     timeout (0.3.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
+    unicode-display_width (2.3.0)
     uri (0.11.0)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
@@ -237,6 +259,7 @@ DEPENDENCIES
   rails (~> 7.0.3, >= 7.0.3.1)
   rspec-rails
   rswag
+  rubocop
   tzinfo-data
 
 RUBY VERSION
